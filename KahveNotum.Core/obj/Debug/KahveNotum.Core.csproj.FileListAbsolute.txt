@@ -1,0 +1,11 @@
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Core\bin\Debug\KahveNotum.Core.dll
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Core\bin\Debug\KahveNotum.Core.pdb
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Core\obj\Debug\KahveNotum.Core.csprojResolveAssemblyReference.cache
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Core\obj\Debug\KahveNotum.Core.dll
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Core\obj\Debug\KahveNotum.Core.pdb
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Core\bin\Debug\KahveNotum.Core.dll
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Core\bin\Debug\KahveNotum.Core.pdb
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Core\obj\Debug\KahveNotum.Core.csprojAssemblyReference.cache
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Core\obj\Debug\KahveNotum.Core.csproj.CoreCompileInputs.cache
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Core\obj\Debug\KahveNotum.Core.dll
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Core\obj\Debug\KahveNotum.Core.pdb

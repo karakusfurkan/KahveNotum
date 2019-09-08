@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "UserActivateOK";
+}
+
+<link href="~/Content/success.css" rel="stylesheet" />
+
+<!------ Include the above in your HEAD tag ---------->
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<div class="container">
+    <div class="row">
+        <br><br>
+        <div class="error-notice">
+            <div class="oaerror success">
+                <strong>Yeppi</strong> - Üyeliğiniz aktifleştirildi!
+            </div>
+            <div class="oaerror info">
+                <strong>Bilgilendirme</strong> - Not beğenebilir ve not paylaşımı yapabilirsiniz.
+            </div>
+            <div class="oaerror danger">
+                <strong>Uyarı</strong> - Sitede her türlü küfür ve argo kullanımı hesap silinme sebebidir!
+            </div>
+
+            <div class="oaerror info">
+                <strong>Yönlendirme</strong> - 10 saniye içinde anasayfaya yönlendirileceksiniz.
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        $("footer").hide();
+
+        setTimeout(function () {
+            window.location = "../Home/Index";
+
+        }, 10000)
+    });
+
+</script>

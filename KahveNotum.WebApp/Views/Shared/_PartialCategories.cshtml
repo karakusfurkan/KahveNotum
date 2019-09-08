@@ -1,0 +1,26 @@
+﻿@using KahveNotum.BusinessLayer
+@using KahveNotum.Entities
+@using KahveNotum.WebApp.Models
+
+
+@{
+    List<Category> list = CacheHelper.GetCategoriesFromCache();
+        }
+
+
+
+
+
+
+<h1 class="my-4">Kategoriler</h1>
+<div class="list-group">
+    @foreach (Category cat in list)
+    {
+        <a href="../../Home/ByCategory/@cat.ID" title="@cat.Description" class="list-group-item list-group-item-action">@cat.Title</a>
+
+
+
+    }
+
+
+</div>

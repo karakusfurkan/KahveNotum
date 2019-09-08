@@ -1,0 +1,58 @@
+﻿@model KahveNotum.WebApp.ViewModels.WarningViewModel
+
+
+
+@{
+                /**/
+
+                ViewBag.Title = Model.Title;
+}
+
+<link href="~/Content/success.css" rel="stylesheet" />
+
+<!------ Include the above in your HEAD tag ---------->
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<div class="container">
+    <div class="row">
+        <br><br>
+        <div class="error-notice">
+
+            
+            <br />
+            <p>
+                @foreach (string msg in Model.Items)
+                {
+                    @msg<br />
+                }
+
+            </p>
+
+            <div class="oaerror info">
+                <strong>Yönlendirme</strong> - 15 saniye içinde anasayfaya yönlendirileceksiniz.
+            </div>
+
+
+        </div>
+    </div>
+</div>
+@{
+    string js = string.Empty;
+    if (Model.IsRedirecting)
+    {
+        js = "setTimeout(function() { window.location = '" + Model.RedirectingUrl + "'; }, " + Model.RedirectingTimeOut + ");";
+    }
+
+
+}
+
+
+
+<script>
+    $(function () {
+
+        $("footer").hide();
+
+        @Html.Raw(js);
+    });
+
+</script>

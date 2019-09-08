@@ -1,0 +1,17 @@
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Entities\bin\Debug\KahveNotum.Entities.dll
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Entities\bin\Debug\KahveNotum.Entities.pdb
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.csprojAssemblyReference.cache
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.csproj.CoreCompileInputs.cache
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.dll
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.pdb
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Entities\bin\Debug\KahveNotum.Entities.dll
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Entities\bin\Debug\KahveNotum.Entities.pdb
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.csprojResolveAssemblyReference.cache
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.dll
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.pdb
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Entities\bin\Debug\KahveNotum.Entities.dll
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Entities\bin\Debug\KahveNotum.Entities.pdb
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.csprojAssemblyReference.cache
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.csproj.CoreCompileInputs.cache
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.dll
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Entities\obj\Debug\KahveNotum.Entities.pdb

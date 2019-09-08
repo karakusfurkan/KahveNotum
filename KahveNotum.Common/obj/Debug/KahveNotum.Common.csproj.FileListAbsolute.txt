@@ -1,0 +1,17 @@
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Common\bin\Debug\KahveNotum.Common.dll
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Common\bin\Debug\KahveNotum.Common.pdb
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Common\obj\Debug\KahveNotum.Common.csprojAssemblyReference.cache
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Common\obj\Debug\KahveNotum.Common.csproj.CoreCompileInputs.cache
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Common\obj\Debug\KahveNotum.Common.dll
+C:\Users\CeyhunKarakuş\source\repos\KahveNotumSolution\KahveNotum.Common\obj\Debug\KahveNotum.Common.pdb
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Common\bin\Debug\KahveNotum.Common.dll
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Common\bin\Debug\KahveNotum.Common.pdb
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Common\obj\Debug\KahveNotum.Common.csprojResolveAssemblyReference.cache
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Common\obj\Debug\KahveNotum.Common.dll
+C:\Users\fkarakus\Downloads\KahveNotum-master\KahveNotum.Common\obj\Debug\KahveNotum.Common.pdb
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Common\bin\Debug\KahveNotum.Common.dll
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Common\bin\Debug\KahveNotum.Common.pdb
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Common\obj\Debug\KahveNotum.Common.csprojAssemblyReference.cache
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Common\obj\Debug\KahveNotum.Common.csproj.CoreCompileInputs.cache
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Common\obj\Debug\KahveNotum.Common.dll
+C:\Users\CeyhunKarakuş\Desktop\KahveNotum_Source\KahveNotum-master\KahveNotum-master\KahveNotum.Common\obj\Debug\KahveNotum.Common.pdb

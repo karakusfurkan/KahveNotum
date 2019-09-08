@@ -1,0 +1,160 @@
+﻿@using KahveNotum.Entities
+@using KahveNotum.WebApp.Models
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <!-- Bootstrap core CSS -->
+    <!-- Custom styles for this template -->
+    <link href="../../Content/shop-homepage.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    
+</head>
+
+<body>
+   
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/Home/About">Kahve Notum</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+                    @if (CurrentSession.User != null)
+                    {
+                    <li class="nav-item">
+                        
+                         <a class="nav-link" href="../../Home/Administration">
+                             <i class="fa fa-columns" aria-hidden="true"></i>
+                        Yönetim</a>
+                    
+                    </li>
+
+                    }
+
+                        
+                    
+                    
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="../../Home/MostLiked">
+                            <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                            En Beğenilenler
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Home/Index">
+                            <i class="fa fa-list-ol" aria-hidden="true"></i>
+                            En Yeniler
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav ml-auto">
+
+                    @if (CurrentSession.User == null)
+                    {
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Home/Login">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+                            Giriş
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Home/Register">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                            Üye Ol
+                        </a>
+
+                    </li>
+                    }
+                    else
+                    {
+
+
+                       
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Home/ShowProfile">
+                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                            @CurrentSession.User.Username
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Home/Logout">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            Çıkış
+                        </a>
+
+                    </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer bg-dark pt-4">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!--Grid row-->
+            <div class="row">
+
+                <p style="color:aqua;">Tüm hakları saklıdır. &copy;  Kahve Notum  @DateTime.Now.Date</p>
+                <hr />
+                <p style="color:dodgerblue">E-Bülten Üyeliği</p>
+                <div class="input-group mb-3">
+                    
+                    <input type="text" class="form-control" placeholder="E-posta Adresiniz" aria-label="E-posta Adresiniz" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">Abone Ol!</button>
+                    </div>
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+        </div>
+        
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+</body>
+
+</html>
+
+<script>
+    $(function () {
+
+        $("footer").hide();
+
+    });
+
+</script>

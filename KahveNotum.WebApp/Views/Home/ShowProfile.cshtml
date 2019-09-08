@@ -1,0 +1,169 @@
+﻿@using KahveNotum.Entities
+@model KahveNotumUser
+
+@{
+    ViewBag.Title = "Profiliniz";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title mb-4">
+                        <div class="d-flex justify-content-start">
+                            <div class="image-container">
+                                <img src="~/images/@Model.ProfileImageFileName" id="ProfileImage" alt="@Model.Username" style="width: 150px; height: 150px" class="img-thumbnail" />
+                                
+                            </div>
+                            <div class="userData ml-3">
+                                <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">Hoşgeldin @Model.Name</a></h2>
+                               
+
+                                @if (Model.Comments == null)
+                                {
+                                    <h6 class="d-block"><a href="javascript:void(0)"> </a> Henüz yorumunuz bulunmamaktadır. </h6>
+                                }
+                                else
+                                {
+                                    <h6 class="d-block"><a href="javascript:void(0)"> @Model.Comments.Count() </a> Yorum </h6>
+                                }
+
+                                @if (Model.Likes == null)
+                                {
+                                    <h6 class="d-block"><a href="javascript:void(0)"> </a> Henüz beğeniniz bulunmamaktadır.</h6>
+                                }
+                                else
+                                {
+                                    <h6 class="d-block"><a href="javascript:void(0)"> @Model.Likes.LongCount()</a> Beğeni</h6>
+                                }
+                            </div>
+                           
+                           
+                            
+                            <div class="ml-auto">
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="" role="tab" aria-controls="basicInfo" aria-selected="true">Genel Bilgiler</a>
+                                </li>
+
+                            </ul>
+                            <div class="tab-content ml-1" id="myTabContent">
+                                <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style = "font-weight:bold;" > Tam Adınız</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            @Model.Name @Model.SurName
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style = "font-weight:bold;" > Kayıt Tarihi</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            @Model.CreatedOn
+                                        </div>
+                                    </div>
+                                    <hr />
+
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style = "font-weight:bold;" > Kullanıcı Adı</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            @Model.Username
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style = "font-weight:bold;" > E - Mail </label >
+                                        </div >
+                                        <div class="col-md-8 col-6">
+                                            @Model.Email
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row text-center">
+    
+
+    <div class='col-lg-6'>
+        <div class="btn-group buttons"><a href="../../Home/EditProfile"><button type="button" class="btn btn-warning btn-lg" id="target1">Profili Düzenle</button></a></div>
+    </div>
+    <div class='col-lg-6'>
+        <div class="btn-group buttons"><a href="#later_works"><button type="button" class="btn btn-danger btn-lg">Hesabı Sil</button></a></div>
+    </div>
+    
+</div>
+
+@*<div class="container">
+
+    <div class="row">
+        <h2 style="margin-left:15px; color:dimgray;">@ViewBag.Title</h2>
+        <hr />
+    </div>
+    <hr />
+    <div class="row">
+
+        <div class="col-md-2">
+            <img src="~/images/@Model.ProfileImageFileName" class="img-circle" width="128" height="128" />
+        </div>
+
+        <div class="col-md-10">
+            <h3>@(Model.Name + " " + Model.SurName)</h3>
+            <br />
+            <h5><b>@Html.DisplayNameFor(model => model.Username) : </b>@Model.Username</h5>
+            <h5><b>@Html.DisplayNameFor(model => model.Email) : </b>@Model.Email</h5>
+            <br />
+            <h5><a href="#">More... </a></h5>
+        </div>
+
+    </div>
+</div>*@
+
+<script>
+    $(function () {
+
+        $("footer").hide();
+
+    });
+
+</script>
+

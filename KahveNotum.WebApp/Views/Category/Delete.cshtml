@@ -1,0 +1,73 @@
+﻿@using KahveNotum.WebApp
+@model KahveNotum.Entities.Category
+
+@{
+    ViewBag.Title = "Delete";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUsername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUsername)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+
+        @Bootstrap.Button("danger", "submit", "", "Delete")
+        @Bootstrap.LinkButton("/Category/Index", "warning", "", "Back To List", "Back To List")
+    }
+</div>
+
+
+<script>
+    $(function () {
+
+        $("footer").hide();
+
+    });
+
+</script>

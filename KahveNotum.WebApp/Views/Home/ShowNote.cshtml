@@ -1,0 +1,241 @@
+﻿@using KahveNotum.Entities
+@using KahveNotum.WebApp.Models
+@model Note
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link href="~/Content/Site.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "ShowNote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row" id="@Model.ID">
+        <div class="col-12 col-sm-6 col-lg-8">
+        <h1>@Model.Title</h1>
+        
+        </div>
+        <div class="col-6 col-lg-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-8">
+        <p>
+            @Model.Text
+        </p>
+        <shadow>@Model.ModifiedOn.Date.ToShortDateString() &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Model.Owner.ModifiedUsername</shadow>
+        </div>
+        
+        <div class="col-6 col-sm-4">
+        
+        @*<h1>Yorumlar</h1>*@
+        
+@if (CurrentSession.User != null)
+{
+
+
+
+    foreach (Comment item in Model.Comments)
+    {
+
+    <div class="my-4 p-4 bg-white rounded box-shadow">
+        <div class="media text-muted pt-3">
+            <img src="~/Images/@item.Owner.ProfileImageFileName" alt="asdawd" style="height:50px;width:50px;">
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark"> @item.Owner.Username &nbsp;&nbsp;&nbsp; @item.ModifiedOn</strong>
+                <span id="comment_text_@item.ID" contenteditable="false">
+                @item.Text
+
+                </span>
+            </p>
+           
+            @if (CurrentSession.User.ID == item.Owner.ID)
+            {
+            <p class="my-3 p-3">
+                <button class="btn btn-warning btn-xs" type="button" data-edit-mode="false" onclick="doComment(this,'edit_clicked',@item.ID,'#comment_text_@item.ID');">
+                    
+                <span class="glyphicon glyphicon-edit">
+                    @*<i class="far fa-edit"></i>*@
+                    
+
+                </span>    
+                
+                
+                </button>
+                <button class="btn btn-danger btn-xs" type="button" onclick="doComment(this,'delete_clicked',@item.ID,null);">
+                
+                    <span class="glyphicon glyphicon-trash">
+                        @*<i class="far fa-edit"></i>*@
+
+                    </span>   
+                
+                </button>
+            </p>
+            }
+
+        </div>
+    </div>
+    }
+
+
+    <div class="input-group mb-3">
+       
+        <input type="text" class="form-control" id="new_comment_text" placeholder="Yorumunuzu ekleyin" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" id="@Model.ID" type="button" onclick="doComment(this,'new_clicked',-1,@Model.ID)">Yorum Ekle</button>
+        </div>
+    </div>
+
+}
+
+            @if (CurrentSession.User == null)
+            {
+                foreach (var comment in Model.Comments)
+                {
+                    <div class="my-4 p-4 bg-white rounded box-shadow">
+                        <div class="media text-muted pt-3">
+                            <img src="~/Images/@comment.Owner.ProfileImageFileName" alt="asdawd" style="height:50px;width:50px;">
+                            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                                <strong class="d-block text-gray-dark"> @comment.Owner.Username &nbsp;&nbsp;&nbsp; @comment.ModifiedOn</strong>
+                                <span id="comment_text_@comment.ID">
+                                    @comment.Text
+
+                                </span>
+                            </p>
+
+                           
+
+                        </div>
+                    </div>
+                }
+
+                <p class="alert-warning">Yorum yapabilmek için giriş yapmanız gerekmektedir.</p>
+            }
+            
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function doComment(btn, e, commentID, spanID) {
+      
+        var button = $(btn);
+        var mode = button.data("edit-mode");
+
+
+        if (e === "edit_clicked") {
+
+            if (!mode) {
+                button.data("edit-mode", true);
+                button.removeClass("btn-warning");
+                button.addClass("btn-success");
+                var btnSpan = button.find("span");
+                btnSpan.removeClass("glyphicon-edit");
+                btnSpan.addClass("glyphicon-ok");
+
+                $(spanID).addClass("editable");
+                $(spanID).attr("contenteditable", true);
+                        
+            }
+            else {
+                button.data("edit-mode", false);
+                button.removeClass("btn-success");
+                button.addClass("btn-warning");
+                var btnSpan = button.find("span");
+                btnSpan.removeClass("glyphicon-ok");
+                btnSpan.addClass("glyphicon-edit");
+
+                $(spanID).removeClass("editable");
+                $(spanID).attr("contenteditable", false);
+
+                var txt = $(spanID).text();
+
+                $.ajax({
+                    method: "POST",
+                    url: "/Home/ShowNote/" + commentID,
+                    data: { text: txt }
+
+
+                }).done(function (data) {
+
+                    if (data.result) {
+
+                        location.reload();
+                        alert("Yorum başarıyla güncellendi");
+                    }
+                    else {
+                        alert("Yorum güncellenemedi."); //Failed comment.
+                    }
+
+                }).fail(function () {
+                    alert("Sunucu ile bağlantı sorunu yaşandı."); //Failed connection.
+                });
+
+
+            }
+            
+            
+
+
+
+        }
+        else if (e === "delete_clicked") {
+            var dialog_res = confirm("Yorum silinsin mi ?");
+            if (!dialog_res) return false;
+            
+            $.ajax({
+                method:"GET",
+                url: "/Home/ShowNote2/" + commentID,
+            }).done(function (data){
+                if (data.result) {
+                    location.reload();
+                    alert("Yorum başarıyla silindi.");
+                }
+            
+            }).fail(function(){
+                alert("Sunucu ile bağlantı kurulamadı.");
+            });
+    
+            
+    
+
+        }
+        else if (e === "new_clicked") {
+            var dialog_res = confirm("Yorum eklensin mi ?");
+            if (!dialog_res) return false;
+            
+
+            var noteID = spanID;
+            var txt = $("#new_comment_text").val();
+            $.ajax({
+                method: "POST",
+                url: "/Home/ShowNote3",
+                data: {"text":txt, "noteID":noteID}
+            }).done(function (data) {
+                if (data.result) {
+                    location.reload();
+                    alert("Yorum başarıyla eklendi.");
+                }
+
+            }).fail(function () {
+                alert("Sunucu ile bağlantı kurulamadı.");
+            });
+
+
+        }
+
+    }
+
+</script>
+
+
+
+
+
+

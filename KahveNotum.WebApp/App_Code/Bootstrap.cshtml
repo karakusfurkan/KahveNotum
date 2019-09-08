@@ -1,0 +1,65 @@
+﻿@helper LinkButton(string id="",string url= "", string color = "", string additionalClass ="",string title = "", string text = "") {
+ 
+        <a href="@url" name="@id" id="@id" class="btn btn-@color @additionalClass" title="@title">@text</a>
+
+}
+@helper LinkButton(string url = "", string color = "", string additionalClass = "", string title = "", string text = "")
+{
+<a href="@url" class="btn btn-@color @additionalClass" title="@title">@text</a>
+}
+
+
+@helper Button(string id = "", string typ = "button", string color = "", string additionalClass = "",  string text = "")
+{
+
+        <button type="@typ" name="@id" id="@id" class="btn btn-@color @additionalClass" >@text</button>
+
+}
+
+@helper Button(string color = "",string typ="button", string additionalClass = "", string text = "")
+{
+
+<button type="@typ" class="btn btn-@color @additionalClass">@text</button>
+    
+
+}
+
+@helper LinkMenu(string url, string text) { 
+    
+    <a href="@url">
+        @text
+    </a>
+    
+    
+    }
+
+
+@helper ModalPopup(string id = "myModal",string title = "Modal Title", bool showCloseButton = true) {
+
+    <!-- Modal -->
+    <div class="modal fade" id="@id" name="@id" tabindex="-1" role="dialog" aria-labelledby="@(id +"_label")" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="@(id + "_header")">
+                    <h5 class="modal-title" id="@(id + "_label")">@title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="@(id + "_body")">
+                   
+                </div>
+                <div class="modal-footer" id="@(id + "_footer")">
+                    @if (showCloseButton)
+                    {
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    }
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+}

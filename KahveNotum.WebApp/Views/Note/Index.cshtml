@@ -1,0 +1,74 @@
+﻿@model IEnumerable<KahveNotum.Entities.Note>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index @Bootstrap.LinkButton("../../Note/Create", "success", "", "Create", "Create New")</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDraft)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LikeCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ModifiedUsername)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDraft)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LikeCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedOn)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ModifiedUsername)
+        </td>*@
+        <td class="row col-md-2">
+            @Bootstrap.LinkButton("../../Note/Edit/" + item.ID, "primary", "", "Edit", "Edit")
+            @Bootstrap.LinkButton("../../Note/Details/" + item.ID, "warning", "", "Details", "Details")
+            @Bootstrap.LinkButton("../../Note/Delete/" + item.ID, "danger", "", "Delete", "Delete")
+        </td>
+    </tr>
+}
+
+</table>

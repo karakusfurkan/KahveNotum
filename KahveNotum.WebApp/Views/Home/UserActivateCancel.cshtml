@@ -1,0 +1,52 @@
+﻿@using KahveNotum.Entities.Messages
+@model List<ErrorMessageObj>
+@{
+    ViewBag.Title = "UserActivateCancel";
+}
+
+<link href="~/Content/success.css" rel="stylesheet" />
+
+<!------ Include the above in your HEAD tag ---------->
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<div class="container">
+    <div class="row">
+        <br><br>
+        <div class="error-notice">
+            
+            <div class="oaerror info">
+                <strong>Önemli</strong> - Hesap geçerli değil...
+            </div>
+            <div class="oaerror warning">
+                <strong>Uyarı</strong> - Hacker olabilir misiniz acaba???????
+            </div>
+            <hr />
+            <br />
+            <p>
+                @foreach (ErrorMessageObj err in Model)
+                {
+                    @err.Message<br />
+                }
+
+            </p>
+
+            <div class="oaerror info">
+                <strong>Yönlendirme</strong> - 15 saniye içinde anasayfaya yönlendirileceksiniz.
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        $("footer").hide();
+
+        setTimeout(function () {
+            window.location = "../Home/Index";
+
+        }, 15000)
+    });
+
+</script>

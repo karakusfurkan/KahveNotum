@@ -1,0 +1,80 @@
+﻿@using KahveNotum.Entities
+@model List<Note>
+
+@{
+    ViewBag.Title = "MyLikedNotes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    KahveNotumUser user = null;
+    if (Session["login"] != null)
+    {
+        user = Session["login"] as KahveNotumUser;
+    }
+
+
+
+}
+
+<div class="container">
+    <div class="row">
+        <!--Kategoriler-->
+        <div class="col-lg-3">
+
+            @Html.Partial("_PartialCategories")
+        </div>
+
+        <div class="col-lg-9">
+            <h3 class="text-center">Beğendiğin Gönderiler @user.Username.ToLower()</h3>
+
+            <!--Notlar-->
+            <div class="row">
+                @foreach (Note note in Model)
+                {
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt="@note.Title"></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">@note.Title</a>
+                                </h4>
+
+                                <p class="card-text">
+                                    @if (string.IsNullOrEmpty(note.Text) == false && note.Text.Length > 75)
+                                    {
+
+                                        @(note.Text.Substring(0, 75) + "...")
+                                    }
+                                    else
+                                    {
+                                        @note.Text
+                                    }
+
+
+                                </p>
+                                <p>
+                                    <a href="/Home/ShowNote/@note.ID" class="btn-dark">Devamı <i class="fa fa-coffee" aria-hidden="true"></i> </a>
+                                </p>
+                                <h6 class="text-right">
+                                    <span><small>@note.Owner.Username</small></span><i class="fa fa-user" aria-hidden="true"></i> <br />
+                                    <span><small>@note.ModifiedOn.ToString("dd.MM.yy")</small></span><i class="fa fa-calendar" aria-hidden="true"></i>
+                                </h6>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+
+
+                }
+
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.col-lg-9 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->

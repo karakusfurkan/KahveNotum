@@ -1,0 +1,207 @@
+﻿@using KahveNotum.WebApp
+@using KahveNotum.Entities
+@{
+    ViewBag.Title = "Administration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+@*<button type="button" class="btn btn-outline-primary">Primary</button>
+<button type="button" class="btn btn-outline-primary">Primary</button>
+<button type="button" class="btn btn-outline-primary">Primary</button>
+    //TODO: Duruma göre Tekli View sayfası içinde button yönlendirme panelleri yapılacak.    
+    *@
+
+
+@{
+    KahveNotumUser user = null;
+    if (Session["login"] != null)
+    {
+        user = Session["login"] as KahveNotumUser;
+    }
+
+
+
+}
+
+@{ 
+    List<string> isimler = new List<string>();
+    isimler.Add("Ali");
+    isimler.Add("Ahmet");
+    isimler.Add("furkan");
+    isimler.Add("selin");
+    isimler.Add("Mert");
+    isimler.Add("hamza");
+    isimler.Add("alper");
+    isimler.Add("simge");
+    isimler.Add("falan");
+    isimler.Add("filan");
+
+
+    Random rand = new Random();
+    int i = rand.Next(isimler.Count());
+    string oneri = isimler[i];
+
+
+}
+
+@if (user.IsAdmin == true)
+{
+
+    <section class="bg-secondary" id="one">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                    <h2 class="margin-top-0 text-warning">Admin Yönetim Paneli</h2>
+                    <br>
+                    <p class="text-faded">
+                       Adminler için hazırlanmış özel bölüm.
+                    </p>
+                    
+                </div>
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                    <h2 class="margin-top-0 text-warning">Hoşgeldiniz @user.Username</h2>
+                    <br>
+                    <p class="text-faded">
+                        Adminler için hazırlanmış özel bölüm.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="two">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="margin-top-0 text-primary">Admin İşlemleri</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-android-laptop wow fadeIn" data-wow-delay=".3s"></i>
+                        <h3>Kategori İşlemleri</h3>
+                        <p class="text-muted">Kategorilerde ekleme/silme/güncelleme işlemlerini yapabileceğiniz bölüm</p>
+                        <div>
+                            @Bootstrap.LinkButton("/Category/Index", "primary", "", "KategoriYonet", "Kategorileri Yönet")
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-android-laptop wow fadeIn" data-wow-delay=".3s"></i>
+                        <h3>Kategori İşlemleri</h3>
+                        <p class="text-muted">Kategorilerde ekleme/silme/güncelleme işlemlerini yapabileceğiniz bölüm</p>
+                        <div>
+                            @Bootstrap.LinkButton("../../Note", "primary", "", "NoteYonet", "Notlarını Yönet")
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-social-sass wow fadeInUp" data-wow-delay=".2s"></i>
+                        <h3>Yorumlar ve Beğeniler</h3>
+                        <p class="text-muted">Yorumlarınızı ve beğenilerinizi görebileceğiniz bölüm.</p>
+                        @Bootstrap.LinkButton("/Category/Index", "primary", "", "KategoriYonet", "---")
+                        @Bootstrap.LinkButton("../../Note/MyLikedNotes/", "primary", "", "MyLikedNotes", "Beğendiklerin")
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-ios-star-outline wow fadeIn" data-wow-delay=".3s"></i>
+                        <h3>Kullanıcı İşlemleri</h3>
+                        <p class="text-muted">Kullanıcıları yönetebileceğiniz kısım</p>
+                        @Bootstrap.LinkButton("/KahveNotumUser/Index", "primary", "", "KullaniciYonet", "Kullanıcıları Yönet")
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+@if (user.IsAdmin == false)
+{
+    <section class="bg-secondary" id="one">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                    <h2 class="margin-top-0 text-warning">Kullanıcı Paneli</h2>
+                    <br>
+                    <p class="text-faded">
+                       Buradan notlarınıza ve beğenilerinize gidebilirsiniz.
+                    </p>
+
+                </div>
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                    <h2 class="margin-top-0 text-warning">Hoşgeldiniz @user.Username</h2>
+                    <br>
+                    <p class="text-faded">
+                        Kahve Önerisi:@oneri    @*Coffee suggestions*@
+                        @*It supposed to be a coffee thing.*@
+                      
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="two">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="margin-top-0 text-primary">Notlarınız</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-android-laptop wow fadeIn" data-wow-delay=".3s"></i>
+                        <h3>Notlar Üzerinde İşlemler</h3>
+                        <p class="text-muted">Notlarınızda ekleme/silme/güncelleme işlemlerini yapabileceğiniz bölüm</p>
+                        <div>
+                            @Bootstrap.LinkButton("../../Note", "primary", "", "NoteManager", "Notlarını Yönet")
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-social-sass wow fadeInUp" data-wow-delay=".2s"></i>
+                        <h3>Yorumlar ve Beğeniler</h3>
+                        <p class="text-muted"> Beğenilerinizi görebileceğiniz bölüm.</p>                        
+                        @Bootstrap.LinkButton("../../Note/MyLikedNotes", "primary", "", "MyLikedNotes", "Beğendiklerin")
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-ios-star-outline wow fadeIn" data-wow-delay=".3s"></i>
+                        <h3>Taslaklar</h3>
+                        <p class="text-muted">Taslak halindeki notlarınızı yönetebileceğiniz kısım</p>
+                        @Bootstrap.LinkButton("/Category/Index", "primary", "", "KategoriYonet", "---")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+
+
+@*
+    TODO:
+    IsAdmin == True
+        Category Management, User Management
+    Else
+        Add Note, Show Notes , Likes
+
+
+
+*@
